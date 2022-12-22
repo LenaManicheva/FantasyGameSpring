@@ -1,0 +1,101 @@
+
+body {
+    background: url(/images/login.png) no-repeat center center fixed;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+}
+
+.container2 {
+    margin: 120px;
+    padding: 0px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.group {
+    margin: 10px;
+    padding: 5px;
+}
+
+h1 {
+    cursor: help;
+    margin: 0;
+    text-transform: uppercase;
+    color: #f841ef;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #f841ef;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px 30px;
+    width: 170px;
+    height: 50px;
+    color: #f841ef;
+    background: black;
+    border-radius: 25px;
+    border-color: #f841ef;
+    text-transform: uppercase;
+    font-size: 15px;
+    box-shadow: 2px 2px 5px #f841ef;
+}
+
+button:hover {
+    opacity: 80%;
+    font-weight: bold;
+    transform: scale(1, 1);
+}
+
+form {
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.3);
+    width: 450px;
+    height: 500px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px #f841ef;
+}
+
+
+.question {
+    text-transform: uppercase;
+    padding-left: 5px;
+    font-size: 15px;
+    color: #f841ef;
+}
+
+input {
+    margin-top: 10px;
+    height: 40px;
+    width: 400px;
+    border-radius: 20px/20px;
+    border: none;
+    padding-left: 15px;
+    font-size: 10px;
+    box-shadow: 2px 2px 5px #f841ef;
+}
+
+input:focus {
+    border: 2px solid #f841ef;
+    transform: translateX(15px);
+    width: 385px;
+}
+
+
+label {
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+.texting {
+    font-size: 20px;
+    color: #f841ef;
+    font-weight: bold;
+}
+
+
+
+
