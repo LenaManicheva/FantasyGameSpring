@@ -23,9 +23,12 @@ public class Person {
     @Size(min = 2, max = 100, message = "Size must be 2-100 symbols")
     @Column(name = "name")
     private String name;
-    @NotEmpty(message = "Password must not be empty")
+    @NotEmpty(message = "Password should not be empty")
     @Column(name = "password")
     private String password;
 
+    @Transient
+    @NotEmpty(message = "Password confirmation should not be empty")
+    private String confirmPassword;
 
 }

@@ -31,5 +31,8 @@ public class PersonValidator implements Validator {
         if (personDatabase.isPresent()) {
             errors.rejectValue("name", "","User with this name already exists");
         }
+        if(!person.getPassword().equals(person.getConfirmPassword())) {
+            errors.rejectValue("confirmPassword", "", "Passwords don't match");
+        }
     }
 }

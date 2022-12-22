@@ -12,14 +12,15 @@ import javax.transaction.Transactional;
 public class RegistrationService {
     private final PeopleRepository peopleRepository;
 
-
     @Autowired
     public RegistrationService(PeopleRepository peopleRepository) {
         this.peopleRepository = peopleRepository;
     }
 
-   @Transactional
-    public void register (Person person) {
-        peopleRepository.save(person);
+    @Transactional
+    public void register(Person person) {
+
+            peopleRepository.save(person);
+
     }
 }
