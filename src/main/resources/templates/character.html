@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Character page</title>
+    <link href="../static/css/character.css" th:href="@{/css/character.css}" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="container1">
+
+    <form th:action="@{/logout}" method="post">
+        <button class="btnflip-item" type="submit">SIGN OUT</button>
+    </form>
+</div>
+
+
+<div class="container2">
+    <div class="characterForm">
+
+        <img id="characterPhoto" th:src="@{|/images/${character.get().getImageUrl()}|}">
+        <br/>
+        <br/>
+        <br/>
+
+        <div class="infoLine">
+            <p class="labelLine" th:text="${character.get().getName()}"></p>
+        </div>
+
+        <br/>
+        <form th:action="@{/start}" th:method="get">
+            <button class="btnflip-item1" type="submit">choose</button>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+

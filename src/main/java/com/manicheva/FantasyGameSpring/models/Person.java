@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "usr")
+@Table(name = "person")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,5 +30,9 @@ public class Person {
     @Transient
     @NotEmpty(message = "Password confirmation should not be empty")
     private String confirmPassword;
+    @ManyToOne
+    @JoinColumn(name = "character_id", referencedColumnName = "id")
+    private GameCharacter character;
+
 
 }
