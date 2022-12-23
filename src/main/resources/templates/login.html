@@ -11,9 +11,11 @@
 <div class="container2">
 <form name="f" method="post" action="/process_login">
 
+    <h1 title="Login form">Welcome</h1>
+    <br/>
     <div class="group">
     <label for="username" class="texting">Enter username: </label>
-    <input type="text" name="username" id="username" placeholder="user"/>
+    <input type="text" name="username" id="username" placeholder="username"/>
     </div>
 
     <div class="group">
@@ -21,18 +23,19 @@
     <input type="password" name="password" id="password" placeholder="password"/>
     </div>
 
-    <div th:if="${param.error}" style="color:red">
+    <div th:if="${param.error}" class="error">
         Wrong username or password
     </div>
 
-
+    <br/>
     <div class="group">
         <center>
             <button>Sign in</button>
         </center>
     </div>
+    <br/>
 
-    <a th:href="@{/registration}" class="question">Don't have registration yet?</a>
+    <a th:href="@{/registration}" class="question">First time in Wonderland?</a>
 
 
 </form>
