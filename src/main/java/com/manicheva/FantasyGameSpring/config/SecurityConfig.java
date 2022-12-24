@@ -1,7 +1,7 @@
 package com.manicheva.FantasyGameSpring.config;
 
 
-import com.manicheva.FantasyGameSpring.services.PersonDetailsService;
+import com.manicheva.FantasyGameSpring.services.UsersDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -10,15 +10,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final PersonDetailsService personDetailsService;
+    private final UsersDetailsService usersDetailsService;
 
     @Autowired
-    public SecurityConfig(PersonDetailsService personDetailsService) {
-        this.personDetailsService = personDetailsService;
+    public SecurityConfig(UsersDetailsService usersDetailsService) {
+        this.usersDetailsService = usersDetailsService;
     }
     //configure authorization + login page
     @Override
@@ -44,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //configure authentication
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(personDetailsService);
+        auth.userDetailsService(usersDetailsService);
     }
 
     @Bean

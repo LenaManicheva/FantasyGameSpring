@@ -1,17 +1,18 @@
 package com.manicheva.FantasyGameSpring.security;
 
-import com.manicheva.FantasyGameSpring.models.Person;
+import com.manicheva.FantasyGameSpring.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
-public class PersonDetails implements UserDetails {
+public class UsersDetails implements UserDetails {
 
-    private final Person person;
+    private final User user;
 
-    public PersonDetails(Person person) {
-        this.person = person;
+    public UsersDetails(User user) {
+        this.user = user;
     }
 
     @Override
@@ -21,12 +22,12 @@ public class PersonDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.person.getPassword();
+        return this.user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return this.person.getName();
+        return this.user.getUsername();
     }
 
     @Override
@@ -49,7 +50,8 @@ public class PersonDetails implements UserDetails {
         return true;
     }
 
-    public Person getPerson() {
-        return person;
+    public User getUser() {
+        return user;
     }
+
 }

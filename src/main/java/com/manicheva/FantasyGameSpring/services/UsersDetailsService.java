@@ -1,8 +1,8 @@
 package com.manicheva.FantasyGameSpring.services;
 
-import com.manicheva.FantasyGameSpring.models.Person;
-import com.manicheva.FantasyGameSpring.repositories.PeopleRepository;
-import com.manicheva.FantasyGameSpring.security.PersonDetails;
+import com.manicheva.FantasyGameSpring.models.User;
+import com.manicheva.FantasyGameSpring.repositories.UserRepository;
+import com.manicheva.FantasyGameSpring.security.UsersDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,19 +12,21 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class PersonDetailsService implements UserDetailsService {
-    private final PeopleRepository peopleRepository;
+public class UsersDetailsService implements UserDetailsService {
+    private final UserRepository userRepository;
     @Autowired
-    public PersonDetailsService(PeopleRepository peopleRepository) {
-        this.peopleRepository = peopleRepository;
+    public UsersDetailsService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Person> person = peopleRepository.findByName(username);
-        if (person.isEmpty()) {
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isEmpty()) {
             throw new UsernameNotFoundException("User not found");
         }
-        return new PersonDetails(person.get());
+        return new UsersDetails(user.get());
     }
+
+
 }

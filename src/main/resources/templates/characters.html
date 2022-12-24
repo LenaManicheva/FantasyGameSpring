@@ -8,15 +8,10 @@
 </head>
 <body>
 
-
-
 <div class="container2" th:each="character : ${characters}">
     <a th:href="@{/character/{id}(id=${character.getId()})}"
        th:text="${character.getName()}">character</a>
 </div>
-
-
-
 
 </body>
 </html>

@@ -1,8 +1,9 @@
 package com.manicheva.FantasyGameSpring.controllers;
 
-import com.manicheva.FantasyGameSpring.models.Person;
+import com.manicheva.FantasyGameSpring.models.User;
 import com.manicheva.FantasyGameSpring.services.RegistrationService;
-import com.manicheva.FantasyGameSpring.util.PersonValidator;
+import com.manicheva.FantasyGameSpring.services.UserService;
+import com.manicheva.FantasyGameSpring.util.UserValidator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,15 +15,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
-public class AuthController {
+public class RegistrationController {
 
-    private final PersonValidator personValidator;
+    private final UserValidator userValidator;
     private final RegistrationService registrationService;
+    private final UserService userService;
 
     @Autowired
-    public AuthController(PersonValidator personValidator, RegistrationService registrationService) {
-        this.personValidator = personValidator;
+    public RegistrationController(UserValidator userValidator, RegistrationService registrationService,
+                                  UserService userService) {
+        this.userValidator = userValidator;
         this.registrationService = registrationService;
+        this.userService = userService;
     }
 
     @GetMapping("/login")
@@ -31,18 +35,18 @@ public class AuthController {
     }
 
     @GetMapping("/registration")
-    public String registrationPage(@ModelAttribute("person") Person person) {
+    public String registrationPage(@ModelAttribute("user") User user) {
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String performRegistration(@ModelAttribute("person") @Valid Person person,
+    public String performRegistration(@ModelAttribute("user") @Valid User user,
                                       BindingResult bindingResult) {
-        personValidator.validate(person, bindingResult);
+        userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "/registration";
+            return "registration";
         }
-        registrationService.register(person);
+        registrationService.save(user);
         return "redirect:/login";
     }
 }

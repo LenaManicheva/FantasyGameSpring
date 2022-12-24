@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
 <div class="container1">
 
     <form th:action="@{/logout}" method="post">
@@ -23,14 +22,11 @@
         <img id="characterPhoto" th:src="@{|/images/${character.get().getImageUrl()}|}">
         <br/>
         <br/>
-        <br/>
-
         <div class="infoLine">
             <p class="labelLine" th:text="${character.get().getName()}"></p>
         </div>
-
         <br/>
-        <form th:action="@{/start}" th:method="get">
+        <form th:method="PATCH" th:action="@{/character/{id} (id=${character.get().getId()})}">
             <button class="btnflip-item1" type="submit">choose</button>
         </form>
 
