@@ -11,16 +11,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 @Controller
-public class CharacterController {
+public class GameController {
+
     private final CharacterService characterService;
     private final UserService userService;
     private final RegistrationService registrationService;
 
 
     @Autowired
-    public CharacterController(CharacterService characterService,
+    public GameController(CharacterService characterService,
                                UserService userService, RegistrationService registrationService) {
         this.characterService = characterService;
         this.userService = userService;
@@ -49,5 +49,4 @@ public class CharacterController {
         registrationService.save(currentUser);
         return "test";
     }
-
 }

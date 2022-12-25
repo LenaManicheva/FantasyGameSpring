@@ -29,11 +29,14 @@ public class User {
     private String password;
 
     @Transient
-
     private String confirmPassword;
     @ManyToOne
     @JoinColumn(name = "character_id", referencedColumnName = "id")
     private Character character;
 
+    @Column(name = "level")
+    private int level;
+    @Column(name = "points")
+    private int points;
 
 }

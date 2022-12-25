@@ -21,8 +21,10 @@ public class Character {
     private String name;
     @Column(name = "image_url")
     private String imageUrl;
+
     @OneToMany(mappedBy = "character")
     private List<User> users;
+
 
     @Override
     public String toString() {

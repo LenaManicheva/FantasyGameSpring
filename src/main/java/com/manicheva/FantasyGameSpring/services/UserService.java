@@ -1,9 +1,8 @@
 package com.manicheva.FantasyGameSpring.services;
 
-import com.manicheva.FantasyGameSpring.models.Character;
 import com.manicheva.FantasyGameSpring.models.User;
 import com.manicheva.FantasyGameSpring.repositories.UserRepository;
-import com.manicheva.FantasyGameSpring.security.UsersDetails;
+import com.manicheva.FantasyGameSpring.security.UserDetailsImpl;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -24,8 +23,8 @@ public class UserService {
 
     public User getCurrentUser() {
         Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
-        UsersDetails usersDetails = (UsersDetails) authentication.getPrincipal();
-        User currentUser=usersDetails.getUser();
+        UserDetailsImpl userDetailsImpl = (UserDetailsImpl) authentication.getPrincipal();
+        User currentUser= userDetailsImpl.getUser();
         return currentUser;
     }
 }

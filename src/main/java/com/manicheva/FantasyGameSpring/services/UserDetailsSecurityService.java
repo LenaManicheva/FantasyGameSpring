@@ -2,7 +2,7 @@ package com.manicheva.FantasyGameSpring.services;
 
 import com.manicheva.FantasyGameSpring.models.User;
 import com.manicheva.FantasyGameSpring.repositories.UserRepository;
-import com.manicheva.FantasyGameSpring.security.UsersDetails;
+import com.manicheva.FantasyGameSpring.security.UserDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class UsersDetailsService implements UserDetailsService {
+public class UserDetailsSecurityService implements UserDetailsService {
     private final UserRepository userRepository;
     @Autowired
-    public UsersDetailsService(UserRepository userRepository) {
+    public UserDetailsSecurityService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -25,7 +25,7 @@ public class UsersDetailsService implements UserDetailsService {
         if (user.isEmpty()) {
             throw new UsernameNotFoundException("User not found");
         }
-        return new UsersDetails(user.get());
+        return new UserDetailsImpl(user.get());
     }
 
 

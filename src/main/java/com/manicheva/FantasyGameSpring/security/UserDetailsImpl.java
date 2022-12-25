@@ -3,15 +3,14 @@ package com.manicheva.FantasyGameSpring.security;
 import com.manicheva.FantasyGameSpring.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
-public class UsersDetails implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
 
     private final User user;
 
-    public UsersDetails(User user) {
+    public UserDetailsImpl(User user) {
         this.user = user;
     }
 
