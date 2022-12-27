@@ -27,13 +27,11 @@ public class User {
     @NotEmpty(message = "Password should not be empty")
     @Column(name = "password")
     private String password;
-
     @Transient
     private String confirmPassword;
     @ManyToOne
     @JoinColumn(name = "character_id", referencedColumnName = "id")
     private Character character;
-
     @Column(name = "level")
     private int level;
     @Column(name = "points")

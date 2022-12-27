@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Character page</title>
+    <link href="../static/css/battle.css" th:href="@{/css/battle.css}" rel="stylesheet">
+</head>
+
+<body>
+<div class="container1">
+
+    <form th:action="@{/home}" method="get">
+        <button class="btnflip-item" type="submit">USER PAGE</button>
+    </form>
+    <form th:action="@{/logout}" method="post">
+        <button class="btnflip-item" type="submit">SIGN OUT</button>
+    </form>
+
+</div>
+
+
+<div class="container2">
+    <div class="userPortfolio">
+        <img class="userPhoto" th:src="@{|/images/characters/${user.getCharacter().getImageUrl()}|}">
+
+        <div class="infoLine">
+            <p class="labelLine">CHARACTER : </p>
+            <p class="infoText" th:text="${user.getCharacter().getName()}"></p>
+        </div>
+        <div class="infoLine">
+            <p class="labelLine">LEVEL : </p>
+            <p class="infoText" th:text="${user.getLevel()}"></p>
+        </div>
+        <div class="infoLine">
+            <p class="labelLine">POINTS : </p>
+            <p class="infoText" th:text="${user.getPoints()}"></p>
+        </div>
+    </div>
+
+    <div class="centerElements">
+
+        <p class="result" th:text="${txt}"></p>
+
+        <p class="pointsLine">Your points in this round:</p>
+        <p class="pointsLine" th:text="${points_round}"></p>
+
+        <form th:action="@{/fight}" th:method="get">
+            <button class="btnflip-item1" type="submit">FIGHT</button>
+        </form>
+    </div>
+
+    <div class="userPortfolio">
+        <img class="userPhoto" th:src="@{|/images/characters/${bot.getImageUrl()}|}">
+        <div class="infoLine">
+            <p class="labelLine">CHARACTER : </p>
+            <p class="infoText" th:text="${bot.getName()}"></p>
+        </div>
+
+        <div class="infoLine">
+            <p class="labelLine">LEVEL : </p>
+            <p class="infoText" th:text="${bot.getLevel()}"></p>
+        </div>
+
+        <div class="infoLine">
+            <p class="labelLine">POINTS : </p>
+            <p class="infoText" th:text="${bot.getPoints()}"></p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

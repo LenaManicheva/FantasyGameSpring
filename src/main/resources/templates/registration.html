@@ -9,38 +9,37 @@
 <body>
 
 <div class="container2">
-<form th:method="POST" th:action="@{/registration}" th:object="${user}">
+    <form th:method="POST" th:action="@{/registration}" th:object="${user}">
 
-    <h1 title="Registration form">Registration</h1>
-    <br/>
-    <div class="group">
-    <label for ="username" class="texting">Enter username</label>
-    <input type="text" th:field="*{username}" id="username" placeholder="username"/>
-    <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
-    </div>
+        <h1 title="Registration form">Registration</h1>
+        <br/>
 
-
-    <div class="group">
-    <label for="password" class="texting" >Enter password</label>
-    <input type="password" th:field="*{password}" id="password" placeholder="password"/>
-    <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
-    </div>
-
-    <div class="group">
-        <label for="confirmPassword" class="texting" >Confirm password</label>
-        <input type="password" th:field="*{confirmPassword}" id="confirmPassword" placeholder=" repeat password" >
-        <div class="error" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
-    </div>
-
-    <div class="group">
-        <center>
-            <button>Sign up</button>
-        </center>
-    </div>
+        <div class="group">
+            <label for="username" class="texting">Enter username</label>
+            <input type="text" th:field="*{username}" id="username" placeholder="username"/>
+            <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+        </div>
 
 
+        <div class="group">
+            <label for="password" class="texting">Enter password</label>
+            <input type="password" th:field="*{password}" id="password" placeholder="password"/>
+            <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
 
-</form>
+        <div class="group">
+            <label for="confirmPassword" class="texting">Confirm password</label>
+            <input type="password" th:field="*{confirmPassword}" id="confirmPassword" placeholder=" repeat password">
+            <div class="error" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
+        </div>
+
+        <div class="group">
+            <center>
+                <button>Sign up</button>
+            </center>
+        </div>
+
+    </form>
 </div>
 
 </body>

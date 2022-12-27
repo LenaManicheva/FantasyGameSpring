@@ -6,20 +6,25 @@
     <title>Character page</title>
     <link href="../static/css/character.css" th:href="@{/css/character.css}" rel="stylesheet">
 </head>
-<body>
 
+
+<body>
 <div class="container1">
+
+    <form th:action="@{/home}" method="get">
+        <button class="btnflip-item" type="submit">USER PAGE</button>
+    </form>
 
     <form th:action="@{/logout}" method="post">
         <button class="btnflip-item" type="submit">SIGN OUT</button>
     </form>
-</div>
 
+</div>
 
 <div class="container2">
     <div class="characterForm">
 
-        <img id="characterPhoto" th:src="@{|/images/${character.get().getImageUrl()}|}">
+        <img id="characterPhoto" th:src="@{|/images/characters/${character.get().getImageUrl()}|}">
         <br/>
         <br/>
         <div class="infoLine">

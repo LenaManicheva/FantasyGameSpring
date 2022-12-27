@@ -9,36 +9,37 @@
 <body>
 
 <div class="container2">
-<form name="f" method="post" action="/process_login">
+    <form name="form" th:method="POST" action="/process_login">
 
-    <h1 title="Login form">Welcome</h1>
-    <br/>
-    <div class="group">
-    <label for="username" class="texting">Enter username: </label>
-    <input type="text" name="username" id="username" placeholder="username"/>
-    </div>
+        <h1 title="Login form">Welcome</h1>
+        <br/>
 
-    <div class="group">
-    <label for="password" class="texting">Enter password: </label>
-    <input type="password" name="password" id="password" placeholder="password"/>
-    </div>
+        <div class="group">
+            <label for="username" class="texting">Enter username: </label>
+            <input type="text" name="username" id="username" placeholder="username"/>
+        </div>
 
-    <div th:if="${param.error}" class="error">
-        Wrong username or password
-    </div>
+        <div class="group">
+            <label for="password" class="texting">Enter password: </label>
+            <input type="password" name="password" id="password" placeholder="password"/>
+        </div>
 
-    <br/>
-    <div class="group">
-        <center>
-            <button>Sign in</button>
-        </center>
-    </div>
-    <br/>
+        <div th:if="${param.error}" class="error">
+            Wrong username or password
+        </div>
 
-    <a th:href="@{/registration}" class="question">First time in Wonderland?</a>
+        <br/>
+        <div class="group">
+            <center>
+                <button>Sign in</button>
+            </center>
+        </div>
+        <br/>
+
+        <a th:href="@{/registration}" class="question">First time in Wonderland?</a>
 
 
-</form>
+    </form>
 </div>
 
 </body>
