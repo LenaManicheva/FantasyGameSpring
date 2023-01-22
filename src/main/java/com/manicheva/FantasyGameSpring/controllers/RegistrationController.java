@@ -31,12 +31,12 @@ public class RegistrationController {
 
     @GetMapping("/login")
     public String loginPage() {
-        return "login";
+        return "registration/login";
     }
 
     @GetMapping("/registration")
     public String registrationPage(@ModelAttribute("user") User user) {
-        return "registration";
+        return "registration/registration";
     }
 
     @PostMapping("/registration")
@@ -44,7 +44,7 @@ public class RegistrationController {
                                       BindingResult bindingResult) {
         userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "registration/registration";
         }
         registrationService.save(user);
         return "redirect:/login";

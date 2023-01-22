@@ -1,6 +1,5 @@
 package com.manicheva.FantasyGameSpring.controllers;
 
-import com.manicheva.FantasyGameSpring.models.Bot;
 import com.manicheva.FantasyGameSpring.models.Character;
 import com.manicheva.FantasyGameSpring.models.User;
 import com.manicheva.FantasyGameSpring.services.CharacterService;
@@ -34,14 +33,14 @@ public class GameController {
     @GetMapping("/character/{id}")
     public String showCharacter(@PathVariable("id") int id, Model model) {
         model.addAttribute("character", characterService.findById(id));
-        return "character";
+        return "game/character";
     }
 
 
     @GetMapping("/characters")
     public String index(Model model) {
         model.addAttribute("characters", characterService.findAll());
-        return "characters";
+        return "game/characters";
     }
 
     @PatchMapping("/character/{id}")
@@ -67,14 +66,14 @@ public class GameController {
             model.addAttribute("no_character", new Object());
         }
 
-        return "home";
+        return "game/home";
     }
 
     @GetMapping("/battle")
     public String startBattle(Model model) {
         model.addAttribute("user", userService.getCurrentUser());
         model.addAttribute("bot", gameService.generateBot());
-        return "battle";
+        return "game/battle";
     }
 
     @GetMapping("/fight")
@@ -90,7 +89,7 @@ public class GameController {
         } else {
             model.addAttribute("txt", "LOSS :(");
         }
-        return "battle";
+        return "game/battle";
     }
 
 }

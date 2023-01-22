@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Character for admin</title>
+    <link href="../static/css/admin/character.css" th:href="@{/css/admin/admin.css}" rel="stylesheet">
+</head>
+<body>
+
+<div>
+
+    <img id="characterPhoto" th:src="@{|/images/characters/${character.get().getImageUrl()}|}">
+    <br/>
+    <p th:text="'Id : ' + ${character.get().getId()}"></p>
+    <br/>
+    <p th:text=" 'Name : ' + ${character.get().getName()}"></p>
+
+</div>
+</body>
+</html>

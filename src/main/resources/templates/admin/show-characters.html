@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All characters for admin</title>
+</head>
+<body>
+
+<div th:each="character : ${characters}">
+    <a th:href="@{/admin/characters/{id}(id=${character.getId()})}"
+       th:text="${character.getName}">character</a>
+</div>
+
+</body>
+</html>

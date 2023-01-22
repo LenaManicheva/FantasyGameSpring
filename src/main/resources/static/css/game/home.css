@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url(/images/battle.png) no-repeat center center fixed;
+    background: url(/images/game/home.png) no-repeat center center fixed;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -21,16 +21,20 @@ body {
 
 .container2 {
     padding: 25px;
+    margin-top: 100px;
     display: grid;
     grid-template-columns: 2fr 3fr 3fr;
     justify-items: center;
     align-items: center;
 }
 
-.centerElements {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.userPortfolio {
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.3);
+    width: 450px;
+    height: 300px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px #34e2de;
 }
 
 button {
@@ -70,31 +74,6 @@ button:hover {
     color: black;
     font-size: 17px;
     font-weight: bold;
-}
-
-.extraFunc{
-    background: rgba(255, 255, 255, 0.3);
-    width: 380px;
-    height: 150px;
-    padding: 20px;
-    margin: 15px;
-    box-shadow: 2px 2px 5px #25938f;
-    font-family: Lucida Handwriting, serif;
-}
-
-.userPhoto {
-    width: 170px;
-    height: 230px;
-}
-
-.userPortfolio {
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.3);
-    width: 450px;
-    height: 500px;
-    padding: 20px;
-    box-shadow: 2px 2px 5px #25938f;
-    font-family: Lucida Handwriting, serif;
 }
 
 .infoLine {
@@ -153,75 +132,5 @@ button:hover {
     border-bottom-width: 1px;
 }
 
-.result {
-    font-size: calc(5px + 8vh);
-    line-height: calc(5px + 10vh);
-    text-shadow: 0 0 5px #25938f, 0 0 5px #27b3af, 0 0 5px #34e2de,
-    0 0 5px #34e2de, 0 0 10px #34e2de, 0 0 5px #34e2de, 0 0 15px #34e2de;
-    color: #34e2de;
-    text-align: center;
-    font-family: Lucida Handwriting, serif;
-    animation: blink 5s infinite;
-    -webkit-animation: blink 5s infinite;
-}
 
-@-webkit-keyframes blink {
-    20%,
-    24%,
-    55% {
-        color: #111;
-        text-shadow: none;
-    }
-    0%,
-    19%,
-    21%,
-    23%,
-    25%,
-    54%,
-    56%,
-    100% {
-        text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 10px white, 0 0 5px white, 0 0 15px white;
-        color: #34e2de;
-    }
-}
 
-@keyframes blink {
-    20%,
-    24%,
-    55% {
-        color: #111;
-        text-shadow: none;
-    }
-    0%,
-    19%,
-    21%,
-    23%,
-    25%,
-    54%,
-    56%,
-    100% {
-        text-shadow: 0 0 5px #25938f, 0 0 5px #27b3af, 0 0 5px #34e2de, 0 0 5px #34e2de,
-        0 0 10px #34e2de, 0 0 5px #34e2de, 0 0 15px #34e2de;
-        color: #34e2de;
-    }
-}
-
-.pointsLine {
-    overflow: hidden;
-    font-size: 25px;
-    text-indent: 10px;
-    text-shadow: 1px 1px 1px black,
-    1px -1px 1px black,
-    -1px 1px 1px black,
-    -1px -1px 1px black;
-    color: #34e2de;
-    transition: all 1s;
-    font-family: Lucida Handwriting, serif;
-    text-align: center;
-}
-
-.pointsLine:hover {
-    text-shadow: -400px 0 #25938f,
-    400px 0 #25938f,
-    0 0 black;
-}

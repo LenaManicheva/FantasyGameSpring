@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New character</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/admin/characters}" th:object="${character}">
+    <label for="name">Enter character name</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    <br/>
+    <label for="imageUrl">Enter image url</label>
+    <input type="text" th:field="*{imageUrl}" id="imageUrl"/>
+    <div style="color:red" th:if="${#fields.hasErrors('imageUrl')}" th:errors="*{imageUrl}">Name error</div>
+    <br/>
+    <input type="submit" value="Create character">
+</form>
+
+</body>
+</html>
